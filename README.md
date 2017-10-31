@@ -17,3 +17,7 @@ branchcmp
 - Select multiple branches from a list
 - Execute any command synchronously
 - Return to origin branch after finish
+
+## Example
+
+![example](https://github.com/StarpTech/branch-comparer/blob/master/branchcmp.gif "Example branchcmp")
