@@ -12,8 +12,6 @@ git
   .branch()
   .then(result => {
     const branches = result.all
-    let branch1 = ''
-    let branch2 = ''
 
     return Inquirer.prompt([
       {
@@ -41,9 +39,9 @@ git
       ]).then(result => {
         const cmd = result.cmd
 
-        choices.forEach(branch => {
+        choices.forEach(async branch => {
           console.log(Chalk.hex(RandomColor())(`Checking out "${branch}"`))
-          git
+          await git
             .checkout(branch)
             .then(() => {
               console.log(Chalk.grey(`Execute "${cmd}"`))

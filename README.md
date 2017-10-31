@@ -10,14 +10,14 @@ branchcmp
 ## Usage
 
 ```
-? What's your branches to compare? master, test
-? Please enter the command you want to execute in both branches! npm run benchmark
+? What's your branches to compare? master, feature_X
+? Please enter the command you want to execute in both branches! npm run test
 Checking out "master"
+Execute "npm run benchmark"
+...
 Checking out "test"
 Execute "npm run benchmark"
-v8.8.1
-Execute "npm run benchmark"
-v8.8.1
+...
 ```
 
 ## Features
