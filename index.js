@@ -11,6 +11,7 @@ const git = require('simple-git/promise')(process.cwd())
 git
   .branch()
   .then(result => {
+    const originBranch = result.current
     const branches = result.all
 
     return Inquirer.prompt([
@@ -26,21 +27,23 @@ git
           return true
         }
       }
-    ]).then(result => {
-      const choices = result.choice
+    ])
+      .then(result => {
+        const choices = result.choice
 
-      return Inquirer.prompt([
-        {
-          type: 'input',
-          name: 'cmd',
-          message:
-            'Please enter the command you want to execute in all branches!'
-        }
-      ]).then(result => {
-        const cmd = result.cmd
-        return run(choices, cmd)
+        return Inquirer.prompt([
+          {
+            type: 'input',
+            name: 'cmd',
+            message:
+              'Please enter the command you want to execute in all branches!'
+          }
+        ]).then(result => {
+          const cmd = result.cmd
+          return run(choices, cmd)
+        })
       })
-    })
+      .then(() => git.checkout(originBranch))
   })
   .catch(console.error)
 
@@ -69,7 +72,9 @@ function spawnSyncPromise(cmd) {
     })
 
     command.on('close', code => {
-      console.log(Chalk.grey(`Executed: "${cmd}" and exited with code: ${code}`))
+      console.log(
+        Chalk.grey(`Executed: "${cmd}" and exited with code: ${code}`)
+      )
       resolve()
     })
   })
