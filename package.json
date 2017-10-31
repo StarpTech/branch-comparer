@@ -22,6 +22,7 @@
     "simple-git": "^1.80.1"
   },
   "devDependencies": {
+    "np": "^2.16.1",
     "prettier": "^1.7.4"
   }
 }
