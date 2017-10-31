@@ -1,6 +1,6 @@
 # branch-comparer
-Checkout multiple git Repositorys and execute scripts.
-Run benchmark scripts in different repositorys and print them in the console.
+Checkout multiple git repositorys, execute scripts and return to the origin branch.
+Perfect to run benchmarks in different branches for copy & paste the result in a PR.
 
 ## Installation
 ```
