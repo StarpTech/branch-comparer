@@ -59,11 +59,11 @@ function checkoutAndExecute(branch, cmd) {
   console.log(Chalk.hex(RandomColor())(`Checking out "${branch}"`))
   return git.checkout(branch).then(() => {
     console.log(Chalk.grey(`Execute "${cmd}"`))
-    return spawnSyncPromise(cmd)
+    return spawnPromise(cmd)
   })
 }
 
-function spawnSyncPromise(cmd) {
+function spawnPromise(cmd) {
   return new Promise((resolve, reject) => {
     const command = spawn(cmd, {
       stdio: 'inherit',
