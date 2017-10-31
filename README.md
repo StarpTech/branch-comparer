@@ -24,3 +24,4 @@ Execute "npm run benchmark"
 
 - Select multiple branches from a list
 - Execute any command synchronously
+- Return to origin branch after finish
