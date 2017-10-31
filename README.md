@@ -1,3 +1,4 @@
+[![NPM version](https://img.shields.io/npm/v/branch-comparer.svg?style=flat)](https://www.npmjs.com/package/branch-comparer)
 # branch-comparer
 Checkout multiple git repositorys, execute scripts and return to the origin branch.
 Perfect to run benchmarks in different branches for copy & paste the result in a PR.
