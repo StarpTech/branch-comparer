@@ -69,7 +69,7 @@ function spawnSyncPromise(cmd) {
     })
 
     command.on('close', code => {
-      console.log(Chalk.green(`Executed: "${cmd}" and exited with code: ${code}`))
+      console.log(Chalk.grey(`Executed: "${cmd}" and exited with code: ${code}`))
       resolve()
     })
   })
