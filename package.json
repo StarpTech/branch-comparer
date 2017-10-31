@@ -1,0 +1,21 @@
+{
+  "name": "branch-comparer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "bin": {
+    "branchcmp": "./index.js"
+  },
+  "author": "Dustin Deus <deusdustin@gmail.com> (http://www.starptech.de)",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "inquirer": "^3.3.0",
+    "randomcolor": "^0.5.3",
+    "simple-git": "^1.80.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.7.4"
+  }
+}
