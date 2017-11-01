@@ -23,7 +23,7 @@ Run scripts two rounds and save the results in files
 ```sh
 branchcmp --file --rounds 2
 ```
-_Will create files in form of `branch.<branch>.<round>.log` in the current working directory._
+_Will create files in form of `branch.<branch>.round-<round>.log` in the current working directory._
 
 ## Help
 
