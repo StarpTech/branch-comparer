@@ -17,6 +17,7 @@ Print results in files
 ```sh
 branchcmp --file
 ```
+_Will create files in form of `branch.<branch>.log` in the current working directory._
 
 ## Features
 
