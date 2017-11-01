@@ -1,7 +1,7 @@
 {
   "name": "branch-comparer",
   "version": "0.1.1",
-  "description": "",
+  "description": "Checkout multiple git repositorys, execute scripts and return to the origin branch.",
   "main": "index.js",
   "scripts": {
     "format": "prettier ./*.js --write",
@@ -10,6 +10,12 @@
     "minor": "np minor --yolo",
     "major": "np major --yolo"
   },
+  "keywords": [
+    "git",
+    "branch",
+    "checkout",
+    "compare"
+  ],
   "bin": {
     "branchcmp": "./index.js"
   },
