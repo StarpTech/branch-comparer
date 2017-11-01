@@ -5,12 +5,10 @@
 const Inquirer = require('inquirer')
 const Chalk = require('chalk')
 const RandomColor = require('randomcolor')
-const spawn = require('child_process').spawn
 const Program = require('commander')
-const { promisify } = require('util')
 const Fs = require('fs')
-const writeFileAsync = promisify(Fs.writeFile)
 const git = require('simple-git/promise')(process.cwd())
+const spawn = require('child_process').spawn
 
 Program.description(
   'branch-comparer - checkout multiple repositorys and execute scripts'
