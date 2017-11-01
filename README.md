@@ -9,7 +9,7 @@ Perfect to run benchmarks in different branches for copy & paste the result in a
 npm i -g branch-comparer
 ```
 ## Usage
-
+Print the results in the console
 ```sh
 branchcmp
 ```
@@ -19,9 +19,22 @@ branchcmp --file
 ```
 _Will create files in form of `branch.<branch>.log` in the current working directory._
 
+Run scripts two rounds and save the results in files
+```sh
+branchcmp --file --rounds 2
+```
+_Will create files in form of `branch.<branch>.<round>.log` in the current working directory._
+
+## Help
+
+```
+branchcmp -h
+```
+
 ## Features
 
 - Select multiple branches from a list
+- Run scripts multiple times in a row
 - Execute any command synchronously
 - Return to origin branch after finish
 - Write results in files or console

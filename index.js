@@ -18,6 +18,11 @@ Program.description(
     'Save the results as files in the current working directory',
     true
   )
+  .option(
+    '-r --rounds <n>',
+    'How many times should the command be executed?',
+    parseInt
+  )
   .option('-c --cli', 'Print the results in the console', true)
   .parse(process.argv)
 
@@ -53,39 +58,48 @@ git
           }
         ]).then(result => {
           const cmd = result.cmd
-          return run(choices, cmd)
+          return run(choices, cmd, Program.file, Program.rounds || 1)
         })
       })
       .then(() => git.checkout(originBranch))
   })
   .catch(console.error)
 
-function run(branches, cmd) {
+function run(branches, cmd, mode, rounds) {
   return branches.reduce(function(p, branch) {
     return p.then(function() {
-      return checkoutAndExecute(branch, cmd)
+      console.log(Chalk.hex(RandomColor())(`Checking out "${branch}"`))
+      return git.checkout(branch).then(() => {
+        return execute(branch, cmd, mode, rounds)
+      })
     })
   }, Promise.resolve()) // initial
 }
 
-function checkoutAndExecute(branch, cmd) {
-  console.log(Chalk.hex(RandomColor())(`Checking out "${branch}"`))
-  return git.checkout(branch).then(() => {
-    console.log(Chalk.grey(`Execute "${cmd}"`))
-    return spawnPromise(branch, cmd)
-  })
+function execute(branch, cmd, mode, rounds) {
+  let iterations = []
+  for (let i = 0; i < rounds; i++) {
+    iterations.push(branch)
+  }
+
+  return iterations.reduce(function(p, branch, round) {
+    return p.then(function() {
+      console.log(Chalk.grey(`Execute "${cmd}"`))
+      return spawnAsync(branch, cmd, mode, round)
+    })
+  }, Promise.resolve()) // initial
 }
 
-function spawnPromise(branch, cmd) {
+function spawnAsync(branch, cmd, mode, round) {
   return new Promise((resolve, reject) => {
     const command = spawn(cmd, {
-      stdio: Program.file ? 'pipe' : 'inherit',
+      stdio: mode ? 'pipe' : 'inherit',
       shell: true,
       encoding: 'utf-8'
     })
 
     if (Program.file) {
-      command.stdout.pipe(Fs.createWriteStream(`branch.${branch}.log`))
+      command.stdout.pipe(Fs.createWriteStream(`branch.${branch}.round-${round+1}.log`))
     }
 
     command.on('close', code => {
