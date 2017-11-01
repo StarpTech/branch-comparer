@@ -11,6 +11,10 @@ npm i -g branch-comparer
 ```sh
 branchcmp
 ```
+Print results in files
+```sh
+branchcmp --file
+```
 
 ## Features
 
