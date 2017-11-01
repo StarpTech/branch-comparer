@@ -24,6 +24,7 @@ _Will create files in form of `branch.<branch>.log` in the current working direc
 - Select multiple branches from a list
 - Execute any command synchronously
 - Return to origin branch after finish
+- Write results in files or console
 
 ## Example
 
