@@ -1,7 +1,7 @@
 {
   "name": "branch-comparer",
   "version": "0.1.2",
-  "description": "Checkout multiple git repositorys, execute scripts and return to the origin branch.",
+  "description": "Checkout multiple git branches, execute scripts and return to the origin branch.",
   "main": "index.js",
   "scripts": {
     "format": "prettier ./*.js --write",
