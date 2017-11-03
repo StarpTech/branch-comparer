@@ -75,10 +75,10 @@ git
         })
       })
       .catch(() => {
-        return git.checkout(originBranch.commit)
+        return git.checkout(originBranch.name)
       })
       .then(() => {
-        return git.checkout(originBranch.commit)
+        return git.checkout(originBranch.name)
       })
       .then(() => console.log(Chalk.green(`Back to ${originBranch.name} ${originBranch.commit}`)))
   })
