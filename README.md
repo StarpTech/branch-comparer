@@ -38,6 +38,7 @@ branchcmp -h
 - Execute any command synchronously
 - Return to origin branch after finish
 - Write results in files or console
+- Autocomplete for common commands `npm run test`, `npm run benchmark`, `node`, `npm run`
 
 ## Example
 
