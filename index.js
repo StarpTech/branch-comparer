@@ -40,6 +40,8 @@ git
       }
     }
 
+    console.log(Chalk.green(`Current Branch is ${originBranch.name} ${originBranch.commit}`))
+
     return Inquirer.prompt([
       {
         type: 'checkbox',
