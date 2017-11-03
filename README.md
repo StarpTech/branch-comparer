@@ -15,13 +15,13 @@ branchcmp
 ```
 Print results in files
 ```sh
-branchcmp --file
+branchcmp --file --script "node -v"
 ```
 _Will create files in form of `branch.<branch>.log` in the current working directory._
 
 Run scripts two rounds and save the results in files
 ```sh
-branchcmp --file --rounds 2
+branchcmp --file --rounds 2 --script "node -v"
 ```
 _Will create files in form of `branch.<branch>.round-<round>.log` in the current working directory._
 
@@ -38,7 +38,6 @@ branchcmp -h
 - Execute any command synchronously
 - Return to origin branch after finish
 - Write results in files or console
-- Autocomplete for common commands `npm run test`, `npm run benchmark`, `node`, `npm run`
 
 ## Example
 

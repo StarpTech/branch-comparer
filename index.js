@@ -10,8 +10,6 @@ const Fs = require('fs')
 const git = require('simple-git/promise')(process.cwd())
 const spawn = require('child_process').spawn
 
-Inquirer.registerPrompt('command', require('inquirer-command-prompt'))
-
 Program.description(
   'branch-comparer - checkout multiple repositorys and execute scripts'
 )
@@ -24,6 +22,10 @@ Program.description(
     '-r --rounds <n>',
     'How many times should the command be executed?',
     parseInt
+  )
+  .option(
+    '-s --script <script>',
+    'Command to run in branches'
   )
   .option('-c --cli', 'Print the results in the console', true)
   .parse(process.argv)
@@ -63,9 +65,9 @@ git
 
         return Inquirer.prompt([
           {
-            type: 'command',
+            type: 'input',
             name: 'cmd',
-            autoCompletion: ['npm run benchmark', 'node', 'npm run', 'npm run test'],
+            default: Program.script,
             message:
               'Please enter the command you want to execute in all branches!'
           }
