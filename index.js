@@ -75,10 +75,11 @@ git
         })
       })
       .catch(() => {
-        return git.checkout(originBranch.name)
+        // after we switch to specific commit we have to attach to the local branch
+        return git.checkout(originBranch.commit).then(git.checkout(originBranch.name))
       })
       .then(() => {
-        return git.checkout(originBranch.name)
+        return git.checkout(originBranch.commit).then(git.checkout(originBranch.name))
       })
       .then(() => console.log(Chalk.green(`Back to ${originBranch.name} ${originBranch.commit}`)))
   })
