@@ -29,8 +29,16 @@ Program.description(
 git
   .branch()
   .then(result => {
-    const originBranch = result.current
+    const originBranch = getCurrentBranch(result.branches)
     const branches = result.all
+
+    function getCurrentBranch(branches) {
+      for (let branch in branches) {
+        if (branches[branch].current) {
+          return branches[branch]
+        }
+      }
+    }
 
     return Inquirer.prompt([
       {
@@ -61,7 +69,8 @@ git
           return run(choices, cmd, Program.file, Program.rounds || 1)
         })
       })
-      .then(() => git.checkout(originBranch))
+      .then(() => git.checkoutBranch(originBranch.name, originBranch.commit))
+      .then(() => console.log(Chalk.green(`Back to ${originBranch.name} ${originBranch.commit}`)))
   })
   .catch(console.error)
 
@@ -99,7 +108,9 @@ function spawnAsync(branch, cmd, mode, round) {
     })
 
     if (Program.file) {
-      command.stdout.pipe(Fs.createWriteStream(`branch.${branch}.round-${round+1}.log`))
+      command.stdout.pipe(
+        Fs.createWriteStream(`branch.${branch}.round-${round + 1}.log`)
+      )
     }
 
     command.on('close', code => {
