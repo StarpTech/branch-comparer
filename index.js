@@ -69,7 +69,12 @@ git
           return run(choices, cmd, Program.file, Program.rounds || 1)
         })
       })
-      .then(() => git.checkoutBranch(originBranch.name, originBranch.commit))
+      .catch(() => {
+        return git.checkout(originBranch.commit)
+      })
+      .then(() => {
+        return git.checkout(originBranch.commit)
+      })
       .then(() => console.log(Chalk.green(`Back to ${originBranch.name} ${originBranch.commit}`)))
   })
   .catch(console.error)
