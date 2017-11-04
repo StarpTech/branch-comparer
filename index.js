@@ -11,7 +11,7 @@ const git = require('simple-git/promise')(process.cwd())
 const spawn = require('child_process').spawn
 
 Program.description(
-  'branch-comparer - checkout multiple repositorys and execute scripts'
+  'branchcmp - checkout multiple branches, execute scripts and log the results.'
 )
   .option(
     '-f --file',
@@ -26,6 +26,10 @@ Program.description(
   .option(
     '-s --script <script>',
     'Command to run in branches'
+  )
+  .option(
+    '-g --gitflow',
+    'Compare current with master branch'
   )
   .option('-c --cli', 'Print the results in the console', true)
   .parse(process.argv)
@@ -46,10 +50,16 @@ git
 
     console.log(Chalk.green(`Current Branch is ${originBranch.name} ${originBranch.commit}`))
 
+    let defaultBranches = []
+    if(Program.gitflow) {
+      defaultBranches = ['master', originBranch.name]
+    }
+
     return Inquirer.prompt([
       {
         type: 'checkbox',
         name: 'choice',
+        default: defaultBranches,
         message: "What's your branches to compare?",
         choices: branches,
         validate: input => {

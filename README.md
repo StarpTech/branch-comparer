@@ -28,7 +28,19 @@ _Will create files in form of `branch.<branch>.round-<round>.log` in the current
 ## Help
 
 ```
-branchcmp -h
+  Usage: branch-comparer [options]
+
+  branchcmp - checkout multiple branches, execute scripts and log the results.
+
+
+  Options:
+
+    -f --file             Save the results as files in the current working directory
+    -r --rounds <n>       How many times should the command be executed?
+    -s --script <script>  Command to run in branches
+    -g --gitflow          Compare current with master branch
+    -c --cli              Print the results in the console
+    -h, --help            output usage information
 ```
 
 ## Features
@@ -38,6 +50,7 @@ branchcmp -h
 - Execute any command synchronously
 - Return to origin branch after finish
 - Write results in files or console
+- Gitflow mode which compares current branch with master
 
 ## Example
 
