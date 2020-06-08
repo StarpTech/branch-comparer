@@ -4,6 +4,15 @@
 Checkout multiple git branches, execute scripts and return to the origin branch.
 Ideally to run benchmarks in different branches and copy & paste the results in a PR.
 
+## Features
+
+- Select multiple branches from a list
+- Run scripts multiple times in a row
+- Execute any command synchronously
+- Return to origin branch after finish
+- Write results in files or console
+- Gitflow mode which compares current branch with master
+
 ## Installation
 ```
 npm i -g branch-comparer
@@ -28,29 +37,8 @@ _Will create files in form of `branch.<branch>.round-<round>.log` in the current
 ## Help
 
 ```
-  Usage: branch-comparer [options]
-
-  branchcmp - checkout multiple branches, execute scripts and log the results.
-
-
-  Options:
-
-    -f --file             Save the results as files in the current working directory
-    -r --rounds <n>       How many times should the command be executed?
-    -s --script <script>  Command to run in branches
-    -g --gitflow          Compare current with master branch
-    -c --cli              Print the results in the console
-    -h, --help            output usage information
+branchcmp -h
 ```
-
-## Features
-
-- Select multiple branches from a list
-- Run scripts multiple times in a row
-- Execute any command synchronously
-- Return to origin branch after finish
-- Write results in files or console
-- Gitflow mode which compares current branch with master
 
 ## Example
 
