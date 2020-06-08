@@ -1,11 +1,12 @@
 {
-  "name": "branch-comparer",
+  "name": "@kibertoad/branch-comparer",
   "version": "0.4.0",
   "description": "Checkout multiple git branches, execute scripts and return to the origin branch.",
   "main": "index.js",
   "scripts": {
     "format": "prettier ./*.js --write",
-    "test": "prettier ./*.js --debug-check",
+    "test:ci:legacy": "",
+    "test:ci": "prettier ./*.js --debug-check",
     "patch": "np patch --yolo",
     "minor": "np minor --yolo",
     "major": "np major --yolo"
@@ -31,5 +32,10 @@
   "devDependencies": {
     "np": "^2.16.1",
     "prettier": "^1.7.4"
+  },
+  "homepage": "http://github.com/kibertoad/branch-comparer",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kibertoad/branch-comparer.git"
   }
 }
