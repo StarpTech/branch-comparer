@@ -25,7 +25,7 @@
     "branchcmp": "./index.js"
   },
   "author": "Dustin Deus <deusdustin@gmail.com> (http://www.starptech.de)",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^4.0.0",
     "commander": "^5.1.0",
