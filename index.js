@@ -48,8 +48,6 @@ git
       )
     )
 
-    console.log(Program.rounds)
-
     let defaultBranches = []
     if (Program.gitflow) {
       defaultBranches = ['master', originBranch.name]
@@ -87,7 +85,10 @@ git
         })
       })
       .catch((err) => {
-        console.error(Chalk.red('Switch to origin branch due to an error'), err.message)
+        console.error(
+          Chalk.red('Switch to origin branch due to an error'),
+          err.message
+        )
         // after we switch to specific commit we have to attach to the local branch
         return git
           .checkout(originBranch.commit)
