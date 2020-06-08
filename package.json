@@ -1,6 +1,6 @@
 {
   "name": "branch-comparer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Checkout multiple git branches, execute scripts and return to the origin branch.",
   "repository": "git@github.com:StarpTech/branch-comparer.git",
   "main": "index.js",
