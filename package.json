@@ -24,7 +24,7 @@
   "dependencies": {
     "chalk": "^2.3.0",
     "commander": "^2.11.0",
-    "inquirer": "^3.3.0",
+    "inquirer": "^6.5.2",
     "randomcolor": "^0.5.3",
     "simple-git": "^1.80.1"
   },
