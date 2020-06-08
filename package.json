@@ -12,6 +12,9 @@
     "minor": "np minor --yolo",
     "major": "np major --yolo"
   },
+  "engines": {
+    "node": ">=10"
+  },
   "keywords": [
     "git",
     "branch",
