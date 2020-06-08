@@ -142,7 +142,9 @@ function spawnAsync(branch, cmd, mode, round) {
 
     if (Program.file) {
       command.stdout.pipe(
-        Fs.createWriteStream(`branch.${branch}.round-${round + 1}.log`)
+        Fs.createWriteStream(
+          `branch.${branch.replace(/\//g, '_')}.round-${round + 1}.log`
+        )
       )
     }
 
