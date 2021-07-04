@@ -24,7 +24,7 @@ Program.description(
     parseInt
   )
   .option('-s --script <script>', 'Command to run in branches')
-  .option('-g --gitflow', 'Compare current with master branch')
+  .option('-g --gitflow', 'Compare current with primary branch', 'master')
   .option('-c --cli', 'Print the results in the console', true)
   .parse(process.argv)
 
@@ -50,7 +50,7 @@ git
 
     let defaultBranches = []
     if (Program.gitflow) {
-      defaultBranches = ['master', originBranch.name]
+      defaultBranches = [Program.gitflow, originBranch.name]
     }
 
     return Inquirer.prompt([

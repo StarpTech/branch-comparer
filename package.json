@@ -27,14 +27,14 @@
   "author": "Dustin Deus <deusdustin@gmail.com> (http://www.starptech.de)",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^4.0.0",
-    "commander": "^5.1.0",
-    "inquirer": "^7.1.0",
-    "randomcolor": "^0.5.4",
-    "simple-git": "^2.6.0"
+    "chalk": "^4.1.1",
+    "commander": "^8.0.0",
+    "inquirer": "^7.3.3",
+    "randomcolor": "^0.6.2",
+    "simple-git": "^2.40.0"
   },
   "devDependencies": {
-    "release-it": "^13.6.2",
-    "prettier": "^2.0.5"
+    "release-it": "^14.10.0",
+    "prettier": "^2.3.2"
   }
 }
