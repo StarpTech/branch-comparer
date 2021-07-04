@@ -11,7 +11,7 @@ Ideally to run benchmarks in different branches and copy & paste the results in 
 - Execute any command synchronously
 - Return to origin branch after finish
 - Write results in files or console
-- Gitflow mode which compares current branch with main
+- Gitflow mode which compares current branch with master (configurable)
 
 ## Installation
 ```
